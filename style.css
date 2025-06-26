@@ -1,0 +1,96 @@
+/* ফন্ট সেট করুন */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* হালকা ধূসর ব্যাকগ্রাউন্ড */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* পুরো ভিউপোর্ট উচ্চতা */
+    margin: 0;
+    padding: 20px; /* চারদিকে প্যাডিং */
+    box-sizing: border-box;
+}
+
+/* কাস্টম টুলটিপ স্টাইল */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%; /* বাটন/আইকনের উপরে */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+    font-size: 0.75rem; /* ছোট ফন্ট সাইজ */
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* সার্চ হাইলাইট */
+.textarea-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    resize: none; /* ব্যবহারকারীকে টেক্সটএরিয়া রিসাইজ করতে দেবেন না */
+    font-family: monospace; /* কোড লেখার জন্য মনোস্পেস ফন্ট */
+    line-height: 1.5;
+    outline: none; /* ফোকাসে আউটলাইন সরান */
+    overflow: auto; /* প্রয়োজনে স্ক্রলবার */
+    color: #333;
+    background-color: #fff;
+    border-radius: 0.75rem; /* গোলাকার কোণা */
+    border: 1px solid #e5e7eb; /* হালকা বর্ডার */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+    border-color: #3b82f6; /* ফোকাসে নীল বর্ডার */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* ফোকাসে শ্যাডো */
+}
+
+/* ছোট স্ক্রিনের জন্য প্রতিক্রিয়াশীলতা */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+    .controls {
+        flex-direction: column; /* ছোট স্ক্রিনে কলামে সাজান */
+        gap: 10px; /* ব্যবধান যোগ করুন */
+    }
+    .controls button,
+    .controls select,
+    .controls input {
+        width: 100%; /* পুরো প্রস্থ নিন */
+    }
+}
+
+/* PWA ইনস্টল বাটন এবং মেসেজ বক্সের জন্য অতিরিক্ত স্টাইল */
+#installPromptContainer {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
