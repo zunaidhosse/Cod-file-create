@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeDownloader PWA</title>
+    <meta name="description" content="A simple PWA to write, edit, and download code files directly in your browser.">
+    <meta name="theme-color" content="#1e1e1e"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>CodeDownloader</h1>
+            <p>Write code, select a file name, and download. Simple.</p>
+        </header>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="filename-select" class="sr-only">File Name</label>
+                <select id="filename-select">
+                    <option value="" disabled selected>Select a file name...</option>
+                    <option value="index.html">index.html</option>
+                    <option value="style.css">style.css</option>
+                    <option value="script.js">script.js</option>
+                    <option value="main.js">main.js</option>
+                    <option value="game.js">game.js</option>
+                    <option value="auth.js">auth.js</option>
+                    <option value="firebase-config.js">firebase-config.js</option>
+                    <option value="manifest.json">manifest.json</option>
+                    <option value="service-worker.js">service-worker.js</option>
+                    <option value="router.js">router.js</option>
+                    <option value="utils.js">utils.js</option>
+                    <option value="Node.js">Node.js</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="search-input" class="sr-only">Search Code</label>
+                <input type="text" id="search-input" placeholder="Search in code...">
+            </div>
+            <div class="control-group-buttons">
+                 <button id="download-btn" data-tooltip="Download File">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </button>
+                <button id="reset-btn" data-tooltip="Reset Editor">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                </button>
+                <button id="install-btn" data-tooltip="Install App" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <textarea id="code-editor" placeholder="<!-- Your code goes here... -->"></textarea>
+
+        <footer>
+            <div id="status-bar">
+            </div>
+            <p>creator by zunaid</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
